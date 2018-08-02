@@ -1,5 +1,4 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
 set tabstop=4
 set shiftwidth=4
@@ -48,43 +47,37 @@ inoremap {% {%<space><space>%}<esc>2hi
 
 let mapleader = ","
 
-"  Vundle
 
-" set the runtime path to include Vundle and initialize
+" vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call plug#begin('~/.vim/plugged')
 
-" alternatively, pass a path where Vundle should install bundles
-"let path = '~/some/path/here'
-"call vundle#rc(path)
+Plug 'gmarik/vundle'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'flazz/vim-colorschemes'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'mattn/emmet-vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'mxw/vim-jsx'
+Plug 'honza/vim-snippets'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'lumiliet/vim-twig'
+Plug 'mhartington/oceanic-next'
+Plug 'cespare/vim-toml'
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 
-" let Vundle manage Vundle, required
-
-Bundle 'gmarik/vundle'
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'mattn/emmet-vim'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'mxw/vim-jsx'
-Bundle 'honza/vim-snippets'
-"Bundle 'kien/ctrlp.vim'
-"Bundle 'evidens/vim-twig'
-Bundle 'lumiliet/vim-twig'
-Bundle 'mhartington/oceanic-next'
-Bundle 'cespare/vim-toml'
-Bundle 'pangloss/vim-javascript'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-"Bundle 'tomtom/tlib_vim'
-Bundle 'sirver/ultisnips'
-
-filetype plugin indent on     " required
+call plug#end()
 
 " Ultisnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -92,10 +85,6 @@ filetype plugin indent on     " required
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-
-" Ctrl P
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " ColorStepper Keys
 "nmap <F6> <Plug>ColorstepPrev
@@ -153,17 +142,20 @@ noremap <leader>7 8gt
 noremap <leader>8 9gt
 noremap <leader>9 10gt
 
-syntax enable
-
 " for vim 8
 if (has("termguicolors"))
  set termguicolors
 endif
 
+let g:solarized_termcolors=16
+
+" Map FZF to Ctrl+P
+nnoremap <C-P> :FZF<CR>
+
 " Color Scheme
 
-colorscheme solarized
+"colorscheme solarized
 "colorscheme atom
 "colorscheme oceandeep
 "colorscheme sorcerer
-"colorscheme OceanicNext
+colorscheme OceanicNext

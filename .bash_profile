@@ -1,5 +1,3 @@
-export PATH=/Applications/MAMP/bin/php/php5.5.3/bin:$PATH
-export PATH=$PATH:/Applications/MAMP/Library/bin/
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/bin:$PATH
@@ -29,3 +27,26 @@ parse_git_branch() {
 export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+set -o vi
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export PATH="/usr/local/opt/node@6/bin:$PATH"
+
+# Container autocomplete
+if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+    . /opt/local/etc/profile.d/bash_completion.sh
+fi
+
+# FZF Terminal Fuzzy Search
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Source Bashrc for NVM
+source ~/.bashrc
+
+# Rebind Ctrl T to Ctrl P for Fuzzy Search
+bind '"\C-p": "\C-x\C-a$a \C-x\C-addi`__fzf_select__`\C-x\C-e\C-x\C-a0Px$a \C-x\C-r\C-x\C-axa "'
+
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export PATH="/usr/local/opt/node@8/bin:$PATH"

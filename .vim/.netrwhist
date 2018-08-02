@@ -1,8 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Users/Brian/work/em/localtunity/assets/sass'
 let g:netrw_dirhist_2='/Users/Brian/work/em/localtunity/assets/sass/layout'
 let g:netrw_dirhist_3='/Users/Brian/work/em/localtunity'
 let g:netrw_dirhist_4='/Users/Brian/work/em/localtunity/assets'
 let g:netrw_dirhist_5='/Users/Brian/work/em/localtunity/assets/sass'
 let g:netrw_dirhist_6='/Users/Brian/work/em/localtunity/assets/sass/components'
+let g:netrw_dirhist_7='/Users/Brian/personal/contact-manager'
+let g:netrw_dirhist_8='/Users/Brian/personal/contact-manager/aurelia_project'
+let g:netrw_dirhist_9='/Users/Brian/personal/contact-manager/aurelia_project/tasks'
